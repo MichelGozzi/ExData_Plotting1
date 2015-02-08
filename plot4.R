@@ -2,9 +2,8 @@ AD <- read.table("household_power_consumption.txt", header = T, sep = ";")  # Al
 
 #  Get only the target data and assign it to WD: WorkData
 WD <- AD[AD$Date == "1/2/2007" | AD$Date == "2/2/2007",]    # string format, not numerical: need ""
-names(WD)
-str(WD)
-# rm(AD)      # removes AD from memory
+
+rm(AD)      # removes AD from memory
 WD$timestamp <- as.POSIXct( paste( WD$Date, WD$Time ), format = "%d/%m/%Y %H:%M:%S" )
 
 WD$Global_active_power <- as.numeric( as.character( WD$Global_active_power ))
@@ -24,7 +23,6 @@ plot(WD$timestamp,WD$Global_active_power,type="l", xlab="", ylab="Global Active 
 
 ##      Plot 2 to create
 plot(WD$timestamp, WD$Voltage,col="black", type="l", xlab="datetime", ylab="Voltage")
-
 
 ##      Plot 3 same as plot3.png
 plot(WD$timestamp, WD$Sub_metering_1,col="black", type="l", xlab="", ylab="Energy sub metering")
