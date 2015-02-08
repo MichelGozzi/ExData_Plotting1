@@ -8,7 +8,7 @@ str(WD$timestamp)
 
 rm(AD)      # removes AD from memory
 
-str(WD$Global_active_power) #More levels than obs???
+str(WD$Global_active_power) 
 ## See http://stackoverflow.com/questions/3418128/how-to-convert-a-factor-to-an-integer-numeric-without-a-loss-of-information
 WD$Global_active_power <- as.numeric( as.character( WD$Global_active_power )) # 2 steps since was a factor
 str(WD$Global_active_power) #More levels than obs???
